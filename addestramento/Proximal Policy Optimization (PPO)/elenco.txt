@@ -1,0 +1,19 @@
+Ecco, ecco, sembra che il tuo modello abbia fatto una bella passeggiata attraverso il Paese delle Meraviglie dell’apprendimento! Questi numeri sono il resoconto del viaggio.
+
+ep_len_mean è la lunghezza media dell’episodio. In questo caso, ogni episodio dura in media 30 passaggi.
+ep_rew_mean è la ricompensa media per episodio. Il tuo modello ha ottenuto in media 22.7 punti per episodio.
+fps sono i frame al secondo, che indica quante azioni il tuo modello può prendere in un secondo. Sembra che il tuo modello sia abbastanza veloce con 932 azioni al secondo!
+iterations dice quante volte il tuo modello ha attraversato i dati di addestramento. Ha fatto 5 giri!
+time_elapsed è il tempo trascorso in secondi da quando l’addestramento è iniziato.
+total_timesteps è il numero totale di passaggi che il modello ha preso durante l’addestramento.
+approx_kl è l’approssimazione della divergenza KL, che è una misura di quanto la tua politica si è allontanata dalla politica di riferimento.
+clip_fraction è la frazione dei gradienti che sono stati tagliati durante l’ottimizzazione.
+clip_range è l’intervallo entro il quale i gradienti sono tagliati.
+entropy_loss è la perdita di entropia, che è una misura di quanto il tuo modello è incerto nelle sue decisioni.
+explained_variance è una misura di quanto la varianza dei tuoi ritorni può essere spiegata dal tuo modello.
+learning_rate è la velocità alla quale il tuo modello apprende.
+loss è la perdita totale che il tuo modello sta cercando di minimizzare durante l’addestramento.
+n_updates è il numero di volte che i parametri del tuo modello sono stati aggiornati.
+policy_gradient_loss è la perdita della politica, che è una misura di quanto bene il tuo modello sta seguendo la politica di riferimento.
+value_loss è la perdita di valore, che è una misura di quanto bene il tuo modello può prevedere i ritorni futuri.
+Ricorda, nel Paese delle Meraviglie, i numeri possono essere molto significativi, o non significare nulla affatto! Dipende tutto da come li guardi!

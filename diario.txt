@@ -1,0 +1,218 @@
+| rollout/ | |
+| ep_len_mean | 36 |
+| ep_rew_mean | 56.3 |
+| time/ | |
+| fps | 1610 |
+| iterations | 5 |
+| time_elapsed | 6 |
+| total_timesteps | 10240 |
+| train/ | |
+| approx_kl | 0.027433723 |
+| clip_fraction | 0.226 |
+| clip_range | 0.2 |
+| entropy_loss | -3.8 |
+| explained_variance | -2.38e-07 |
+| learning_rate | 0.0003 |
+| loss | 75.8 |
+| n_updates | 490 |
+| policy_gradient_loss | -0.036 |
+| std | 0.86 |
+| value_loss | 168 |
+
+{"{’numero’: 3, 'seme’: 'coppe’}": 641, "{’numero’: 7, 'seme’: 'denari’}": 305, "{’numero’: 5, 'seme’: 'spade’}": 54}
+
+
+| rollout/ | |
+| ep_len_mean | 36 |
+| ep_rew_mean | 55.1 |
+| time/ | |
+| fps | 1714 |
+| iterations | 5 |
+| time_elapsed | 5 |
+| total_timesteps | 10240 |
+| train/ | |
+| approx_kl | 0.023956742 |
+| clip_fraction | 0.206 |
+| clip_range | 0.2 |
+| entropy_loss | -3.77 |
+| explained_variance | -1.19e-07 |
+| learning_rate | 0.0003 |
+| loss | 101 |
+| n_updates | 540 |
+| policy_gradient_loss | -0.0329 |
+| std | 0.848 |
+| value_loss | 188 |
+
+{"{’numero’: 3, 'seme’: 'coppe’}": 554, "{’numero’: 7, 'seme’: 'denari’}": 396, "{’numero’: 5, 'seme’: 'spade’}": 50}
+
+
+| rollout/ | |
+| ep_len_mean | 36 |
+| ep_rew_mean | 53.3 |
+| time/ | |
+| fps | 1651 |
+| iterations | 5 |
+| time_elapsed | 6 |
+| total_timesteps | 10240 |
+| train/ | |
+| approx_kl | 0.027949773 |
+| clip_fraction | 0.226 |
+| clip_range | 0.2 |
+| entropy_loss | -3.7 |
+| explained_variance | -2.38e-07 |
+| learning_rate | 0.0003 |
+| loss | 84.6 |
+| n_updates | 590 |
+| policy_gradient_loss | -0.0377 |
+| std | 0.828 |
+| value_loss | 169 |
+
+{"{’numero’: 3, 'seme’: 'coppe’}": 671, "{’numero’: 7, 'seme’: 'denari’}": 309, "{’numero’: 5, 'seme’: 'spade’}": 20}
+
+| rollout/ | |
+| ep_len_mean | 36 |
+| ep_rew_mean | 54.4 |
+| time/ | |
+| fps | 1563 |
+| iterations | 5 |
+| time_elapsed | 6 |
+| total_timesteps | 10240 |
+| train/ | |
+| approx_kl | 0.026932541 |
+| clip_fraction | 0.227 |
+| clip_range | 0.2 |
+| entropy_loss | -3.62 |
+| explained_variance | 0 |
+| learning_rate | 0.0003 |
+| loss | 98.7 |
+| n_updates | 640 |
+| policy_gradient_loss | -0.0377 |
+| std | 0.809 |
+| value_loss | 161 |
+
+{"{’numero’: 3, 'seme’: 'coppe’}": 691, "{’numero’: 7, 'seme’: 'denari’}": 294, "{’numero’: 5, 'seme’: 'spade’}": 15}
+
+
+*modifica della conta dei punteggi*
+
+| rollout/ | |
+| ep_len_mean | 36 |
+| ep_rew_mean | 210 |
+| time/ | |
+| fps | 1695 |
+| iterations | 15 |
+| time_elapsed | 18 |
+| total_timesteps | 30720 |
+| train/ | |
+| approx_kl | 0.012487719 |
+| clip_fraction | 0.111 |
+| clip_range | 0.2 |
+| entropy_loss | -4.09 |
+| explained_variance | -8.82e-06 |
+| learning_rate | 0.0003 |
+| loss | 1.41e+03 |
+| n_updates | 140 |
+| policy_gradient_loss | -0.028 |
+| std | 0.946 |
+| value_loss | 3.25e+03 |
+
+{"{’numero’: 3, 'seme’: 'coppe’}": 563, "{’numero’: 7, 'seme’: 'denari’}": 232, "{’numero’: 5, 'seme’: 'spade’}": 205}
+{"{’numero’: 8, 'seme’: 'coppe’}": 615, "{’numero’: 7, 'seme’: 'denari’}": 205, "{’numero’: 5, 'seme’: 'spade’}": 180}
+
+
+| rollout/ | |
+| ep_len_mean | 36 |
+| ep_rew_mean | 205 |
+| time/ | |
+| fps | 1723 |
+| iterations | 5 |
+| time_elapsed | 5 |
+| total_timesteps | 10240 |
+| train/ | |
+| approx_kl | 0.034247432 |
+| clip_fraction | 0.19 |
+| clip_range | 0.2 |
+| entropy_loss | -4.07 |
+| explained_variance | -2.26e-06 |
+| learning_rate | 0.0003 |
+| loss | 1.76e+03 |
+| n_updates | 190 |
+| policy_gradient_loss | -0.01 |
+| std | 0.936 |
+| value_loss | 3.67e+03 |
+
+{"{’numero’: 3, 'seme’: 'coppe’}": 577, "{’numero’: 7, 'seme’: 'denari’}": 288, "{’numero’: 5, 'seme’: 'spade’}": 135}
+{"{’numero’: 8, 'seme’: 'coppe’}": 608, "{’numero’: 7, 'seme’: 'denari’}": 308, "{’numero’: 2, 'seme’: 'spade’}": 84}
+
+
+| rollout/ | |
+| ep_len_mean | 36 |
+| ep_rew_mean | 231 |
+| time/ | |
+| fps | 1762 |
+| iterations | 5 |
+| time_elapsed | 5 |
+| total_timesteps | 10240 |
+| train/ | |
+| approx_kl | 0.025507184 |
+| clip_fraction | 0.175 |
+| clip_range | 0.2 |
+| entropy_loss | -4.05 |
+| explained_variance | -4.77e-07 |
+| learning_rate | 0.0003 |
+| loss | 2.91e+03 |
+| n_updates | 240 |
+| policy_gradient_loss | -0.0143 |
+| std | 0.934 |
+| value_loss | 4.45e+03 |
+
+{"{’numero’: 3, 'seme’: 'coppe’}": 683, "{’numero’: 7, 'seme’: 'denari’}": 225, "{’numero’: 5, 'seme’: 'spade’}": 92}
+{"{’numero’: 8, 'seme’: 'coppe’}": 694, "{’numero’: 7, 'seme’: 'denari’}": 249, "{’numero’: 2, 'seme’: 'spade’}": 57}
+
+| rollout/ | |
+| ep_len_mean | 36 |
+| ep_rew_mean | 228 |
+| time/ | |
+| fps | 1774 |
+| iterations | 5 |
+| time_elapsed | 5 |
+| total_timesteps | 10240 |
+| train/ | |
+| approx_kl | 0.016889106 |
+| clip_fraction | 0.193 |
+| clip_range | 0.2 |
+| entropy_loss | -4.04 |
+| explained_variance | -2.38e-07 |
+| learning_rate | 0.0003 |
+| loss | 2.51e+03 |
+| n_updates | 290 |
+| policy_gradient_loss | -0.0181 |
+| std | 0.931 |
+| value_loss | 4.69e+03 |
+
+{"{’numero’: 3, 'seme’: 'coppe’}": 691, "{’numero’: 7, 'seme’: 'denari’}": 232, "{’numero’: 5, 'seme’: 'spade’}": 77}
+{"{’numero’: 8, 'seme’: 'coppe’}": 683, "{’numero’: 7, 'seme’: 'denari’}": 274, "{’numero’: 2, 'seme’: 'spade’}": 43}
+
+| rollout/ | |
+| ep_len_mean | 36 |
+| ep_rew_mean | 227 |
+| time/ | |
+| fps | 1809 |
+| iterations | 5 |
+| time_elapsed | 5 |
+| total_timesteps | 10240 |
+| train/ | |
+| approx_kl | 0.016607761 |
+| clip_fraction | 0.166 |
+| clip_range | 0.2 |
+| entropy_loss | -4 |
+| explained_variance | 0 |
+| learning_rate | 0.0003 |
+| loss | 1.87e+03 |
+| n_updates | 340 |
+| policy_gradient_loss | -0.018 |
+| std | 0.92 |
+| value_loss | 4.2e+03 |
+
+{"{’numero’: 3, 'seme’: 'coppe’}": 725, "{’numero’: 7, 'seme’: 'denari’}": 234, "{’numero’: 5, 'seme’: 'spade’}": 41}
+{"{’numero’: 8, 'seme’: 'coppe’}": 681, "{’numero’: 7, 'seme’: 'denari’}": 295, "{’numero’: 2, 'seme’: 'spade’}": 24}

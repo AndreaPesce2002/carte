@@ -5,9 +5,10 @@ from ambiente import SimpleScopaEnv
 # Creiamo l'ambiente
 env = SimpleScopaEnv()
 
+model = PPO.load('modelli/scopa_ppo',env)
+
 # Creiamo il modello
-model = PPO("MlpPolicy", env, verbose=1)
-#model = PPO.load('modelli/scopa_ppo')
+#model = PPO("MlpPolicy", env, verbose=1)
 
 # Addestriamo il modello
 model.learn(total_timesteps=100000)

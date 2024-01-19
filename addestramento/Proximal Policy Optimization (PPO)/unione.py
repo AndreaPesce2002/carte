@@ -11,7 +11,7 @@ model = PPO.load('modelli/scopa_ppo',env)
 #model = PPO("MlpPolicy", env, verbose=1)
 
 # Addestriamo il modello
-model.learn(total_timesteps=100000)
+model.learn(total_timesteps=1000)
 
 model.save('modelli/scopa_ppo')
 

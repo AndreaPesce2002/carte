@@ -8,8 +8,10 @@ class Giocatore:
         self.carte = []
         self.squadra=squadra
         self.ultimoRaccoglitore=False
+        self.vecchioPunteggio=0
     def reset(self):
         self.carte = []
+        self.vecchioPunteggio=0
         self.squadra.reset()
         
 class squadra:
@@ -72,7 +74,7 @@ class Scopone():
         validi = [combin for combin in combinazioni if sum(card['numero'] for card in combin) == carta_giocata['numero']]
         return validi
         
-    def calcolo_punti(self, raccolte,raccolte_avv, val=None):
+    def calcolo_punti(self,vecchioPunteggio, raccolte,raccolte_avv, val=None):
         punteggio=0
         
         _valori={
@@ -173,7 +175,9 @@ class Scopone():
         else:
             punteggio+=napoli/3
             _valori['napoletana']=napoli/3
-                        
+        
+        punteggio=punteggio-vecchioPunteggio
+              
         if val is None:
             return punteggio
         else:
@@ -294,8 +298,10 @@ class Scopone():
 
         # Troviamo la posizione del valore più grande
         action = np.argmax(action_limited)
-            
+    
         carta_giocata = giocatore.carte.pop(action) # il giocatore gioca una carta
+        
+        print('carta scelta:', carta_giocata)   
         
         #print('giocatore:', self.turno+1, "carte:", giocatore.carte, "ha giocato:", carta_giocata)
 
@@ -342,9 +348,10 @@ class Scopone():
                         giocatore.squadra.raccolte.append(carta)
                     self.tavolo=[]
         
-        reward = self.calcolo_punti(giocatore.squadra.raccolte, self.giocatori[(2 - self.turno) % 2].squadra.raccolte) + giocatore.squadra.scope
+        reward = self.calcolo_punti(giocatore.vecchioPunteggio,giocatore.squadra.raccolte, self.giocatori[(2 - self.turno) % 2].squadra.raccolte) + giocatore.squadra.scope
         punteggio_reale = self.calcolo_punti_real(giocatore.squadra.raccolte, self.giocatori[(2 - self.turno) % 2].squadra.raccolte) + giocatore.squadra.scope
-        
+        giocatore.vecchioPunteggio=reward
+        #print(reward)
         new_state=self.get_observation()
         
         if self.turno == 3:
@@ -356,9 +363,8 @@ class Scopone():
         if len(giocatore.carte)==0 and not len(self.mazzo) == 0:
             giocatore.carte = self.mazzo[:3] # dai 3 carte a ciascun giocatore
             self.mazzo = self.mazzo[3:] # rimuovi le carte date dal mazzo
-        
-                                
-        #print('tavolo:',self.tavolo)
+                             
+        print('tavolo:',self.tavolo)
         
         # Restituisci il nuovo stato, la ricompensa e se il gioco è finito
         return new_state, reward, self.done,punteggio_reale

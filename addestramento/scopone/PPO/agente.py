@@ -41,6 +41,19 @@ class Modello:
         self.vittorie=0
         self.sconfitte=0
         self.ricompensa=0
+    
+    def azione(self, stato):
+            # Converti lo stato in tensori PyTorch e passalo al modello del giocatore corrente
+            stato_tensor = torch.from_numpy(stato).float().unsqueeze(0)
+            action_probs, state_value = self.model(stato_tensor)
+
+            # Assicurati che action_probs abbia la dimensione corretta (10)
+            action_probs = action_probs.view(-1, 10)
+
+            # Converti le probabilità di azione in numpy per passarle all'ambiente
+            azione_numpy = action_probs.squeeze().detach().cpu().numpy()
+            
+            return azione_numpy
 
 def allenamento(numero_episodi=1000):
 
@@ -139,7 +152,7 @@ def allenamento(numero_episodi=1000):
         print(f'partita conclsa: {squadrea1}-{squadrea2} \n addestramento comletato al', str((episodio*100)/numero_episodi)+'%')
 
     #stampa la percentuale di vittorie
-    print('percentuale vittorie')
+    print('fine simulazione')
 
     vittorie_totali = [modello.vittorie for modello in modelli]
     media_vittorie = np.mean(vittorie_totali)

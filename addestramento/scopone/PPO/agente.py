@@ -38,9 +38,8 @@ class Modello:
             self.model = ActorCritic(num_inputs, num_actions)
         self.optimizer_actor = optim.Adam(self.model.actor.parameters(), lr=1e-3)
         self.optimizer_critic = optim.Adam(self.model.critic.parameters(), lr=1e-3)
-        self.vittorie=0
-        self.sconfitte=0
         self.ricompensa=0
+        self.punteggi=[]
     
     def azione(self, stato):
             # Converti lo stato in tensori PyTorch e passalo al modello del giocatore corrente
@@ -138,12 +137,8 @@ def allenamento(numero_episodi=1000):
         squadrea1=modelli[turno].ricompensa
         squadrea2=modelli[(turno + 2) % 4].ricompensa
         
-        if squadrea1 > squadrea2:
-            modelli[turno].vittorie += 1
-            modelli[(turno + 2) % 4].sconfitte+=1
-        else:
-            modelli[turno].sconfitte += 1
-            modelli[(turno + 2) % 4].vittorie+=1
+        modelli[turno].punteggi.append(squadrea1)
+        modelli[(turno + 2) % 4].punteggi.append(squadrea2)
 
         #sposta i modellli
         modelli = modelli[1:] +modelli[:1]
@@ -154,53 +149,52 @@ def allenamento(numero_episodi=1000):
     #stampa la percentuale di vittorie
     print('fine simulazione')
 
-    vittorie_totali = [modello.vittorie for modello in modelli]
-    media_vittorie = np.mean(vittorie_totali)
-    mediana_vittorie = np.median(vittorie_totali)
-    deviazione_standard_vittorie = np.std(vittorie_totali)
+    punteggi_totali = [modello.punteggi for modello in modelli]
+    media_punteggi = np.mean(punteggi_totali)
+    mediana_punteggi = np.median(punteggi_totali)
+    deviazione_standard_punteggi = np.std(punteggi_totali)
 
     for i, modello in enumerate(modelli):
-        partite_giocate = modello.vittorie + modello.sconfitte
-        percentuale_vittorie = (modello.vittorie * 100) / partite_giocate if partite_giocate > 0 else 0
+        partite_giocate = modello.punteggi
+        #percentuale_punteggi = (modello.punteggi * 100) / partite_giocate if partite_giocate > 0 else 0
         print(f"squadrea: {i+1}:")
-        print(f"    vittorie e sconfittte: {modello.vittorie} vittorie e {modello.sconfitte} sconfitte.")
-        print(f"    percentuale vittorie: {percentuale_vittorie:.2f}%")
-        print(f"    media vittorie: {media_vittorie:.2f}")
-        print(f"    mediana vittorie: {mediana_vittorie:.2f}")
-        print(f"    deviazione standard vittorie: {deviazione_standard_vittorie:.2f}")
+        #print(f"    percentuale punteggi: {percentuale_punteggi:.2f}%")
+        print(f"    media punteggi: {media_punteggi:.2f}")
+        print(f"    mediana punteggi: {mediana_punteggi:.2f}")
+        print(f"    deviazione standard punteggi: {deviazione_standard_punteggi:.2f}")
         if i==1:
             break
 
-    # Prima determiniamo quale modello ha la percentuale di vittorie più alta
+    # Prima determiniamo quale modello ha la percentuale di punteggi più alta
     miglior_punteggio = -float('inf')
     modello_vincente = None
     indice_modello_vincente = -1
 
-    for i in range(4):
-        partite_giocate = modelli[i].vittorie + modelli[i].sconfitte
-        percentuale_vittorie = (modelli[i].vittorie * 100) / partite_giocate if partite_giocate > 0 else 0
-        if percentuale_vittorie > miglior_punteggio:
-            miglior_punteggio = percentuale_vittorie
-            modello_vincente = modelli[i]
-            indice_modello_vincente = i
+    # for i in range(4):
+    #     partite_giocate = modelli[i].punteggi
+    #     percentuale_punteggi = (modelli[i].punteggi * 100) / partite_giocate if partite_giocate > 0 else 0
+    #     if percentuale_punteggi > miglior_punteggio:
+    #         miglior_punteggio = percentuale_punteggi
+    #         modello_vincente = modelli[i]
+    #         indice_modello_vincente = i
 
-    # Assicurati che le cartelle esistano o creale
-    os.makedirs('modelli/scopone', exist_ok=True)
-    os.makedirs('modelli/scopone/squadra1', exist_ok=True)
-    os.makedirs('modelli/scopone/squadra2', exist_ok=True)
+    # # Assicurati che le cartelle esistano o creale
+    # os.makedirs('modelli/scopone', exist_ok=True)
+    # os.makedirs('modelli/scopone/squadra1', exist_ok=True)
+    # os.makedirs('modelli/scopone/squadra2', exist_ok=True)
 
-    # Ora che abbiamo il modello vincente, salviamolo per l'eternità (o finché non viene sovrascritto)
-    if modello_vincente is not None:
+    # # Ora che abbiamo il modello vincente, salviamolo per l'eternità (o finché non viene sovrascritto)
+    # if modello_vincente is not None:
         
-        #salva i modelli
-        for i in range(4):
-            if i%2==0:
-                torch.save(modelli[0].model.state_dict(), f'modelli/scopone/squadra1/modello_{i}')
-            else:
-                torch.save(modelli[0].model.state_dict(), f'modelli/scopone/squadra2/modello_{i}')
+    #     #salva i modelli
+    #     for i in range(4):
+    #         if i%2==0:
+    #             torch.save(modelli[0].model.state_dict(), f'modelli/scopone/squadra1/modello_{i}')
+    #         else:
+    #             torch.save(modelli[0].model.state_dict(), f'modelli/scopone/squadra2/modello_{i}')
         
-    else:
-        print("Sembra che non ci siano modelli da salvare. Assicurati che la competizione sia iniziata!")
+    # else:
+    #     print("Sembra che non ci siano modelli da salvare. Assicurati che la competizione sia iniziata!")
 
     # Se in futuro desideri risvegliare il modello vincente dal suo sonno magico, ecco come potresti farlo:
     # modello_risvegliato = ActorCritic(num_inputs, num_actions)  # Assumi che sia la classe del tuo modello
